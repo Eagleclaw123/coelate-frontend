@@ -1,0 +1,102 @@
+import React from 'react';
+import { FaArrowRightLong } from 'react-icons/fa6';
+import { Link } from 'react-router-dom';
+import BreadCrumb from '../../../Shared/BreadCrumb/BreadCrumb';
+
+const CoreERPServices = () => {
+  const services = [
+    {
+      title: "SAP S/4HANA",
+      link: "/service/sap_services/s/4hana",
+      image: "/images/sapservice1.png",
+    },
+    {
+      title: "Successfactors",
+      link: "/service/sap_services/successfactors",
+      image: "/images/sapservice2.png",
+    },
+    {
+      title: "Ariba",
+      link: "/service/sap_services/ariba",
+      image: "/images/sapservice3.png",
+    },
+    {
+      title: "Opentext",
+      link: "/service/sap_services/opentext",
+      image: "/images/sapservice4.png",
+    },
+    {
+      title: "Business Technology Platform ",
+      link: "/service/sap_services/Business_platform_technologies",
+      image: "/images/sapservice5.png",
+    }
+  ];
+
+  return (
+    <section className="bg-gray-50 py-16 px-6 md:px-12 lg:px-24">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl text-left font-bold text-gray-900 mb-4">SAP <span className='text-PrimaryColor2-0'>Services</span></h2>
+         
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {services.map((service, index) => (
+            <div 
+              key={index} 
+              className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden"
+            >
+              <div className="p-6">
+                <div className="flex justify-center mb-5">
+                  <img 
+                    src={service.image} 
+                    alt={service.title} 
+                    className="h-34 w-34 object-cover rounded-lg"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3 text-center">{service.title}</h3>
+                <p className="text-gray-600 mb-6 text-center">{service.description}</p>
+                <div className="text-center">
+                  <Link 
+                    to={service.link} 
+                    className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors"
+                  >
+                    Learn More
+                    <FaArrowRightLong className="w-4 h-4 ml-2" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const AboutInner = () => {
+  return (
+    <>
+      <div className="animate-fade-in">
+        <BreadCrumb
+          breadCrumbTitle={'SAP Services'} 
+          // breadCrumbIcon={<FaArrowRightLong />}
+          // breadCrumbLink={'SAP Services'}
+          backgroundImage="/images/Sap21.jpeg"
+          className="cursor-default"
+        />
+      </div>
+      
+      {/* Services Section */}
+      <div className="py-12 bg-gradient-to-r from-blue-50 to-gray-50">
+        <div className="container mx-auto px-4">
+          <CoreERPServices />
+        </div>
+      </div>
+      
+      
+    </>
+  );
+};
+
+export default AboutInner;

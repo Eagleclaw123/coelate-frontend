@@ -1,0 +1,60 @@
+/* banner.css */
+.banner-content > * {
+  will-change: transform, opacity;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition-delay: calc(0.4s * var(--i)); /* Add delay based on child index */
+}
+
+.swiper-slide-active .banner-content > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.swiper-slide-prev .banner-content > * {
+  opacity: 0;
+  transform: translateY(100px);
+}
+
+/* Ensure smooth scrolling and transitions */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optimize Swiper container for performance */
+.swiper {
+  overflow: hidden;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+/* Disable hover effects during transitions */
+.primary-btn5 {
+  pointer-events: none;
+}
+
+.animate-on-scroll-stop {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.animate-on-scroll-stop.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (max-width: 640px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+  }
+
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    font-size: 16px;
+  }
+}
