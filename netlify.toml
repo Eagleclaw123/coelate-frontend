@@ -1,0 +1,6 @@
+[build]
+  command = "git lfs install && git lfs fetch --all && git lfs checkout && npm run build"
+  publish = "dist"
+
+[context.production]
+  ignore = "false"
