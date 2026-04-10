@@ -9,7 +9,7 @@ export default defineConfig({
   plugins: [react()],
 
   // Static asset handling
-  assetsInclude: ["**/*.jpg", "**/*.png", "**/*.webp"], // Explicitly include all image types
+  assetsInclude: ["**/*.jpg", "**/*.png", "**/*.webp", "**/*.gif"], // Explicitly include all image types
 
   // server: {
   //   https: {
