@@ -1,16 +1,18 @@
-import { Link } from 'react-router-dom';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectFade, Autoplay, Navigation } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/effect-fade';
-import 'swiper/css/navigation';
-import './banner.css';
-import { motion } from 'framer-motion';
+import { Link } from "react-router-dom";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectFade, Autoplay, Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/navigation";
+import "./banner.css";
+import { motion } from "framer-motion";
 
 const Banner = () => {
   const slides = [
     {
-      image: '/images/aii.gif',
+      webm: "/images/aii.webm",
+      mp4: "/images/aii.mp4",
+      poster: "/images/aii-poster.webp", // optional: first frame as static image
       title: (
         <>
           Powering Business Evolution
@@ -20,7 +22,9 @@ const Banner = () => {
       ),
     },
     {
-      image: '/images/SAP.gif',
+      webm: "/images/SAP.webm",
+      mp4: "/images/SAP.mp4",
+      poster: "/images/SAP-poster.webp",
       title: (
         <>
           Engineering Smarter Enterprises
@@ -30,7 +34,9 @@ const Banner = () => {
       ),
     },
     {
-      image: '/images/banner4.gif',
+      webm: "/images/banner4.webm",
+      mp4: "/images/banner4.mp4",
+      poster: "/images/banner4-poster.webp",
       title: (
         <>
           Integrating Businesses with
@@ -46,11 +52,9 @@ const Banner = () => {
     speed: 1500,
     autoplay: { delay: 9000, disableOnInteraction: false },
     navigation: true,
-    effect: 'fade',
+    effect: "fade",
     modules: [EffectFade, Autoplay, Navigation],
     fadeEffect: { crossFade: true },
-    preloadImages: false, // Disable preloading
-    lazy: true, // Enable lazy loading
   };
 
   return (
@@ -59,17 +63,21 @@ const Banner = () => {
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             <div className="relative h-[450px] sm:h-[600px] md:h-[600px] lg:h-[650px] xl:h-[700px]">
-              {/* Optimized image loading */}
-              <img
-                src={slide.image}
-                alt=""
+              <video
                 className="absolute w-full h-full object-cover"
-                loading="lazy" // Lazy load images
-                decoding="async" // Non-blocking decoding
-              />
-              
+                autoPlay
+                loop
+                muted
+                playsInline
+                poster={slide.poster}
+                preload={index === 0 ? "auto" : "none"}
+              >
+                <source src={slide.webm} type="video/webm" />
+                <source src={slide.mp4} type="video/mp4" />
+              </video>
+
               <div className="absolute inset-0 bg-black/30"></div>
-              
+
               <div className="container mx-auto px-4 sm:px-6 relative z-10 h-full flex items-center">
                 <div className="banner-content text-center sm:text-left max-w-2xl mx-auto sm:mx-0 sm:ml-[90px]">
                   <motion.h2
