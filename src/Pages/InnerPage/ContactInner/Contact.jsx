@@ -78,14 +78,15 @@ const Contact = () => {
                   </h5>
                   <br />
                   <h4 className="font-semibold text-[22px] text-TextColor2-0">
-                    Hyderabad, India
+                    Dubai, UAE
                   </h4>
                   <p>
-                    DSL Abacus IT Park, Survey Colony, Industrial Development
-                    Area,
-                    <br /> Uppal, Hyderabad, Telangana 500039
+                    Business Center 1, M Floor, The Meydan Hotel, Nad Al Sheba
                   </p>
                   <br />
+                  <h4 className="font-semibold text-[22px] text-TextColor2-0">
+                    Hyderabad, India
+                  </h4>
                   <p>
                     Suite 205, Hiline Complex, Road No. 12, Banjara Hills,
                     Hyderabad-500034
